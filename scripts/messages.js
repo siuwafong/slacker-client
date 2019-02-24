@@ -9,13 +9,13 @@ function createArticle( $message ) {
     let $dateTimeOnly = $dateMessage.toLocaleTimeString( );
     let $dateDateOnly = $dateMessage.toLocaleDateString( );
 
-    let $timePieces = $dateTimeOnly.replace( / /gi , ":" ).split( ":"); 
+    let $timePieces = $dateTimeOnly.replace( / /gi , ":" ).split( ":");
     let $message_time = $("<span>").addClass( "message-time").text( $timePieces[ 0 ] + ":" + $timePieces[ 1 ] + " " +  $timePieces [ 3 ] + " " + $dateDateOnly);
     console.log( "message-2" , $message );
-    let $message_text = $("<span>").addClass( "message-text").text( $message.message.text );      
+    let $message_text = $("<span>").addClass( "message-text").text( $message.message.text );
     let $message_meta_text = $("<div>").addClass( "message-meta-text");
     $message_meta_text.append( $message_author );
-    $message_meta_text.append( $message_time ); 
+    $message_meta_text.append( $message_time );
     $message_meta_text.append( $message_text );
 
     $article.append( $message_image );
@@ -37,7 +37,7 @@ function createArticle( $message ) {
         let $article = createArticle( message );
         $("#messages-list").append( $article );
       });
-    } 
+    }
 
   function submitMessage( message ) {
       $.post("/messages/new" , message , function(data, status){
@@ -55,21 +55,21 @@ function createArticle( $message ) {
         event.preventDefault( );
         let message = {
          "user": {
-         "name": "Ramses",
-         "image": "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=25"
+         "name": "Wilson",
+         "image": "https://pbs.twimg.com/profile_images/1042886888225267712/1W9BKljE_400x400.jpg"
          },
          "message": {
          "text": event.target.value,
          "date": ( new Date( ) ).getTime( )
          }
-       };   
+       };
         let $article = createArticle( message );
-          $("#messages-list").prepend( $article );  
+          $("#messages-list").prepend( $article );
           event.target.value = "";
-        console.log( message );     
+        console.log( message );
         submitMessage( message );
       }
-     });        
+     });
 
     loadMessages( );
 
