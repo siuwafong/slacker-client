@@ -1,4 +1,4 @@
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <link href="css/login.css" rel="stylesheet"/>
@@ -16,13 +16,15 @@
             <h3> Collaborate.  Do more.  Make things happen</h3>
           </section>
           <section>
-            <form action="profile.html" method="get">
-              <input type="text" placeholder="username">
-              <input type="password" placeholder="password">
-              <input type="submit" value="login">
+            <form>
+            <!-- <form action="profile.html" method="get"> -->
+              <input id="username" type="text" placeholder="username">
+              <input id="password"type="password" placeholder="password">
+              <input id="login-button" type="submit" value="login" onclick="loginFunction()">
             </form>
           </section>
       </main>
     </section>
+    <script src="scripts/login.js"></script>
   </body>
 </html>
